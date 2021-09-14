@@ -1,0 +1,28 @@
+#include<stdio.h>
+#include<string.h>
+#define max 10
+char Stack[max];
+int top=-1;
+void main()
+{
+	char exp[20],c;
+int i;
+printf("\n Enter expression:\t");
+gets(exp);
+for(i=0;i<strlen(exp);i++)
+{
+	c=exp[i];
+	if(c=='(')
+	Stack[++top]=c;
+	else if(c==')')
+	if(top==-1)
+	break;
+	else
+	top--;
+}
+
+if(strlen(exp)==i && top==-1)
+printf("\n The given expression is valid");
+else
+printf("\n The given expression is invalid");
+}
