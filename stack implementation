@@ -1,0 +1,96 @@
+#include <stdio.h>
+#define MAX 10
+int top=-1;
+void push(int S[],int x);
+int pop(int S[MAX]);
+void underflow(int S[MAX]);
+void overflow(int S[MAX]);
+int peek(int S[MAX]);
+void display();
+void main()
+{
+	int stack[MAX],x,ch,r;
+	printf("MENU\n");
+	printf("1. PUSH \n2. POP \n3.UNDERFLOW \n4.OVERFLOW \n5.PEEK \n6.DISPLAY \n7.EXIT \n");
+	do
+	{
+	
+	printf("Enter choice: \t");
+	scanf("%d",&ch);
+	switch (ch)
+	{
+		case 1: printf("Read Values to Add in Stack     ");
+		scanf("%d",&x);
+		push(stack,x);
+		break;
+		case 2: r=pop(stack);
+		printf("%d\n",r);
+		break;
+		case 3: underflow(stack);
+		break;
+		case 4: overflow(stack);
+		break;
+		case 5: r=peek(stack);
+		printf("%d\n",r);
+		break;
+		case 6: display(stack);
+		break;
+		default: printf("Incorrect Choice. Please enter again");
+		break;
+	}
+}while(ch!=7);
+}
+void push(int S[MAX],int x)
+{
+	if(top==(MAX-1))
+	{
+		printf("Stack Overflow\n");
+	}
+	else
+	top=top+1;
+	S[top]=x;
+}
+int pop(int S[MAX])
+{
+	if(top==-1)
+	{
+		printf("Stack Underflow\n");
+	}
+	else
+	{
+		int x=S[top];
+		top=top-1;
+		return (x);
+	}
+}
+void underflow(int S[MAX])
+{
+	if(top==-1)
+		printf("Stack Underflow\n");
+		
+		
+}
+void overflow(int S[MAX])
+{
+	if(top==(MAX-1))
+		printf("Stack overflow\n");
+}
+int peek(int S[MAX])
+{
+	int x=S[top];
+	return x;
+}
+void display(int S[])
+{
+	int i;
+	if(top>=0)
+    {
+        printf("\n The elements in STACK \n");
+        for(i=top; i>=0; i--)
+            printf("\n%d\n",S[i]);
+    }
+    else
+    {
+        printf("\n The STACK is empty");
+    }
+}
