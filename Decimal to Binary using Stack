@@ -1,0 +1,39 @@
+#include<stdio.h>
+#define max 10
+int Stack[max];
+int top=-1;
+void push(int x);
+int pop();
+void main()
+{
+int n;
+printf("\n Enter input in decimal form:\t");
+scanf("%d",&n);
+while (n>0)
+{
+push(n%2);
+n=n/2;
+}
+printf("\n  Binary equivalent:\t ");
+while (top >-1)
+printf("%d",pop());
+}
+
+void push(int x)
+{
+	//if(top==max)
+//	prinf("Stack Overflow");
+//	else
+Stack[++top]=x;
+
+}
+
+int pop()
+{
+	int x;
+	if(top==-1)
+     printf("Stack underflow");
+	else
+	x=Stack[top--];
+		return x;
+}
