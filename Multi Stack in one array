@@ -123,14 +123,18 @@ int size2(int Stack[max])
 void display1(int Stack[max])
 {
 	int i;
-	for(i=T1;i>=1;i--)
+	for(i=T1;i>=0;i--)
+	{
 	printf("\n%d\n",Stack[i]);
+}
 }
 void display2(int Stack[max])
 {
 	int i;
 	for(i=T2;i<=max;i++)
+	{
 	printf("\n%d\n",Stack[i]);
+}
 }
 int peek1(int Stack[max])
 {
