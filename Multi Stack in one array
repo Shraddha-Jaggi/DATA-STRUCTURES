@@ -1,0 +1,150 @@
+#include<stdio.h>
+#define max 10
+int Stack[max];
+int T1=-1;
+int T2=max;
+void push1(int stack[max],int x);
+void push2(int stack[max],int x);
+int pop1(int Stack[max]);
+int pop2(int Stack[max]);
+void underflow1(int Stack[max]);
+void underflow2(int Stack[max]);
+int size1(int Stack[max]);
+int size2(int Stack[max]);
+void display1(int Stack[max]);
+void display2(int Stack[max]);
+int peek1(int Stackmax[]);
+int peek2(int Stack[max]);
+void overflow(int Stack[max]);
+
+void main()
+{
+int stack[max],x,ch,r;
+	printf("MENU\n");
+	printf("1. PUSH1 \n2. PUSH2 \n3.POP1 \n4.POP2 \n5.UNDERFLOW1 \n6.UNDERFLOW2 \n7.SIZE1 \n8.SIZE2 \n9.DISPLAY1 \n10.DISPLAY2 \n11.PEEK1 \n12.PEEK2 \n13.OVERFLOW \n14.EXIT");
+	do
+	{
+	
+	printf("\nEnter choice: \t");
+	scanf("%d",&ch);
+	switch (ch)
+	{
+		case 1: printf("Read Values to Add in Stack     ");
+		scanf("%d",&x);
+		push1(Stack,x);
+		break;
+		case 2:printf("Read Values to Add in Stack     ");
+		scanf("%d",&x);
+		push2(Stack,x);
+		break;
+		case 3: r=pop1(Stack);
+		printf("%d\n",r);
+		break;
+		case 4: r=pop2(Stack);
+		printf("%d\n",r);
+		break;
+		case 5: underflow1(Stack);
+		break;
+		case 6: underflow2(Stack);
+		break;
+		case 7: r=size1(Stack);
+		printf("%d",r);
+		break;
+		case 8:r= size2(Stack);
+			printf("%d",r);
+		break;
+		case 9: display1(Stack);
+		break;
+		case 10: display2(Stack);
+		break;
+		case 11: r=peek1(Stack);
+		printf("%d\n",r);
+		break;
+		case 12: r=peek2(Stack);
+		printf("%d\n",r);
+		break;
+		case 13: overflow(Stack);
+		break;
+		default: printf("Incorrect Choice. Please enter again or enter 14 to exit");
+		break;
+	}
+}while(ch!=14);
+
+
+}
+void push1( int stack[max],int x)
+{
+T1++;
+Stack[T1]	=x;
+}
+void push2(int stack[max],int x)
+{
+	T2--;
+Stack[T2]	=x;
+}
+int pop1(int Stack[max])
+{
+int x;
+x=Stack[T1]	;
+
+T1--;
+return x;
+}
+int pop2(int Stack[max])
+{
+int x;
+x=Stack[T2]	;
+
+T2++;
+return x;
+}
+void underflow1(int Stack[max])
+{
+	if(T1==-1)
+	printf("Stack 1 underflow");
+	else
+	printf("Element can be deleted");
+}
+void underflow2(int Stack[max])
+{
+	if(T2==max)
+	printf("Stack 2 underflow");
+	else
+	printf("Element can be deleted");
+}
+int size1(int Stack[max])
+{
+	return T1+1;
+}
+int size2(int Stack[max])
+{
+	return max-T2;
+}
+void display1(int Stack[max])
+{
+	int i;
+	for(i=T1;i>=1;i--)
+	printf("\n%d\n",Stack[i]);
+}
+void display2(int Stack[max])
+{
+	int i;
+	for(i=T2;i<=max;i++)
+	printf("\n%d\n",Stack[i]);
+}
+int peek1(int Stack[max])
+{
+	return Stack[T1];
+}
+int peek2(int Stack[max])
+{
+	return Stack[T2];
+}
+void overflow(int Stack[max])
+{
+	if(T2==T1+1)
+		printf("Stack overflow");
+		else
+		printf("You can enter elements");
+		
+}
